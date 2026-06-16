@@ -6,20 +6,20 @@ Tu travailles sur une application SaaS professionnelle de prospection immobiliè
 
 Tu dois agir comme un développeur full-stack senior spécialisé en :
 
-* React ;
-* Vite ;
-* TypeScript ;
-* Tailwind CSS ;
-* shadcn/ui ;
-* Node.js ;
-* Express ;
-* MongoDB ;
-* Mongoose ;
-* authentification sécurisée ;
-* SaaS billing ;
-* architecture maintenable ;
-* conformité RGPD ;
-* APIs publiques françaises.
+- React ;
+- Vite ;
+- TypeScript ;
+- Tailwind CSS ;
+- shadcn/ui ;
+- Node.js ;
+- Express ;
+- MongoDB ;
+- Mongoose ;
+- authentification sécurisée ;
+- SaaS billing ;
+- architecture maintenable ;
+- conformité RGPD ;
+- APIs publiques françaises.
 
 Le projet doit être conçu pour être commercialisable. Il ne doit pas être traité comme un simple prototype.
 
@@ -29,20 +29,20 @@ Le projet doit être conçu pour être commercialisable. Il ne doit pas être tr
 
 Créer une application permettant à un conseiller immobilier de :
 
-* créer un compte ;
-* se connecter par email/mot de passe ;
-* se connecter avec Google OAuth ;
-* gérer son profil utilisateur ;
-* consulter un dashboard métier ;
-* lancer des recherches de SCI ;
-* sauvegarder des prospects ;
-* qualifier des prospects ;
-* scorer des prospects ;
-* suivre des actions commerciales ;
-* gérer les oppositions RGPD ;
-* exporter des prospects selon les limites de son plan ;
-* gérer son abonnement ;
-* consulter son plan et son usage.
+- créer un compte ;
+- se connecter par email/mot de passe ;
+- se connecter avec Google OAuth ;
+- gérer son profil utilisateur ;
+- consulter un dashboard métier ;
+- lancer des recherches de SCI ;
+- sauvegarder des prospects ;
+- qualifier des prospects ;
+- scorer des prospects ;
+- suivre des actions commerciales ;
+- gérer les oppositions RGPD ;
+- exporter des prospects selon les limites de son plan ;
+- gérer son abonnement ;
+- consulter son plan et son usage.
 
 ---
 
@@ -52,51 +52,67 @@ Créer une application permettant à un conseiller immobilier de :
 
 Utiliser obligatoirement :
 
-* React ;
-* Vite ;
-* TypeScript ;
-* Tailwind CSS ;
-* shadcn/ui ;
-* React Router ;
-* TanStack Query ou Redux Toolkit Query ;
-* React Hook Form ;
-* Zod ;
-* Recharts ;
-* Lucide React ;
-* Sonner.
+- React ;
+- Vite ;
+- TypeScript ;
+- Tailwind CSS ;
+- shadcn/ui ;
+- React Router ;
+- TanStack Query ;
+- React Hook Form ;
+- Zod ;
+- Recharts ;
+- Lucide React ;
+- Sonner.
 
 Interdiction d’utiliser :
 
-* Bootstrap ;
-* Material UI ;
-* Ant Design ;
-* Chakra UI ;
-* styled-components ;
-* CSS non structuré ;
-* UI kit non demandé.
+- Bootstrap ;
+- Material UI ;
+- Ant Design ;
+- Chakra UI ;
+- styled-components ;
+- CSS non structuré ;
+- UI kit non demandé.
 
 Le design doit être construit avec Tailwind CSS et shadcn/ui.
+
+### State management frontend
+
+Le projet utilise TanStack Query comme solution principale pour la gestion de l’état serveur.
+
+Règles :
+
+- utiliser TanStack Query pour les appels API, le cache, les états loading/error/success, les invalidations et le refetch ;
+- ne pas utiliser Redux ou Redux Toolkit par défaut ;
+- ne pas introduire Redux Toolkit Query sauf décision explicite ultérieure ;
+- utiliser React Hook Form + Zod pour l’état des formulaires ;
+- utiliser l’état local React (`useState`, `useReducer`) pour les états UI simples ;
+- utiliser React Context uniquement pour des états transverses légers : session utilisateur, thème, layout/sidebar si nécessaire ;
+- ne pas dupliquer dans un store global les données déjà gérées par TanStack Query ;
+- privilégier les paramètres d’URL pour les filtres, tris, pagination et recherches partageables ;
+- toute introduction d’un store global supplémentaire doit être justifiée par un besoin réel.
 
 ### Backend
 
 Utiliser :
 
-* Node.js ;
-* Express ;
-* MongoDB ;
-* Mongoose ;
-* Zod ou Joi ;
-* JWT ;
-* refresh token rotation ;
-* bcrypt ou argon2 ;
-* Helmet ;
-* CORS ;
-* rate limiting ;
-* dotenv ;
-* Stripe ;
-* Google OAuth côté backend ;
-* gestion centralisée des erreurs ;
-* utilitaire maison `catchAsync.js`.
+- Node.js ;
+- Express ;
+- MongoDB ;
+- Mongoose ;
+- Zod ou Joi ;
+- JWT ;
+- refresh token rotation ;
+- bcrypt ou argon2 ;
+- Helmet ;
+- CORS ;
+- rate limiting ;
+- dotenv ;
+- Stripe ;
+- Google OAuth côté backend ;
+- gestion centralisée des erreurs ;
+- utilitaire maison `catchAsync.js`.
 
 Ne pas utiliser `express-async-handler`.
 
@@ -282,21 +298,21 @@ frontend/
 
 Respecter strictement les règles suivantes :
 
-* ne jamais versionner `.env` ;
-* ne jamais créer de secret réel ;
-* créer uniquement `.env.example` ;
-* ne jamais exposer `STRIPE_SECRET_KEY` côté frontend ;
-* ne jamais exposer `GOOGLE_CLIENT_SECRET` côté frontend ;
-* ne jamais exposer `INSEE_API_KEY` côté frontend ;
-* hasher les mots de passe ;
-* ne jamais stocker de mot de passe en clair ;
-* protéger toutes les routes privées ;
-* vérifier l’utilisateur propriétaire des données ;
-* empêcher un utilisateur d’accéder aux prospects d’un autre utilisateur ;
-* valider toutes les entrées utilisateur ;
-* gérer les erreurs proprement ;
-* prévoir le rate limiting ;
-* prévoir les rôles utilisateur.
+- ne jamais versionner `.env` ;
+- ne jamais créer de secret réel ;
+- créer uniquement `.env.example` ;
+- ne jamais exposer `STRIPE_SECRET_KEY` côté frontend ;
+- ne jamais exposer `GOOGLE_CLIENT_SECRET` côté frontend ;
+- ne jamais exposer `INSEE_API_KEY` côté frontend ;
+- hasher les mots de passe ;
+- ne jamais stocker de mot de passe en clair ;
+- protéger toutes les routes privées ;
+- vérifier l’utilisateur propriétaire des données ;
+- empêcher un utilisateur d’accéder aux prospects d’un autre utilisateur ;
+- valider toutes les entrées utilisateur ;
+- gérer les erreurs proprement ;
+- prévoir le rate limiting ;
+- prévoir les rôles utilisateur.
 
 ---
 
@@ -367,29 +383,29 @@ VITE_APP_NAME=Prospection SCI App
 
 Implémenter une architecture permettant :
 
-* inscription email/mot de passe ;
-* connexion email/mot de passe ;
-* connexion Google OAuth ;
-* refresh token rotation ;
-* logout ;
-* récupération utilisateur courant ;
-* protection des routes privées ;
-* réinitialisation de mot de passe ;
-* vérification email ultérieure si nécessaire.
+- inscription email/mot de passe ;
+- connexion email/mot de passe ;
+- connexion Google OAuth ;
+- refresh token rotation ;
+- logout ;
+- récupération utilisateur courant ;
+- protection des routes privées ;
+- réinitialisation de mot de passe ;
+- vérification email ultérieure si nécessaire.
 
 Modèles nécessaires :
 
-* `User` ;
-* `RefreshToken` ou mécanisme équivalent ;
-* éventuel `PasswordResetToken` ;
-* éventuel `EmailVerificationToken`.
+- `User` ;
+- `RefreshToken` ou mécanisme équivalent ;
+- éventuel `PasswordResetToken` ;
+- éventuel `EmailVerificationToken`.
 
 Règles :
 
-* un utilisateur peut avoir plusieurs providers ;
-* Google OAuth ne doit pas écraser un compte existant sans contrôle ;
-* si un email existe déjà, prévoir une logique de liaison sécurisée ;
-* le frontend ne doit jamais gérer directement le secret Google.
+- un utilisateur peut avoir plusieurs providers ;
+- Google OAuth ne doit pas écraser un compte existant sans contrôle ;
+- si un email existe déjà, prévoir une logique de liaison sécurisée ;
+- le frontend ne doit jamais gérer directement le secret Google.
 
 ---
 
@@ -399,20 +415,20 @@ L’application doit être construite pour gérer des plans.
 
 Créer les modèles :
 
-* `Plan` ;
-* `Subscription` ;
-* `UsageCounter`.
+- `Plan` ;
+- `Subscription` ;
+- `UsageCounter`.
 
 Prévoir Stripe pour :
 
-* Checkout Session ;
-* Customer Portal ;
-* webhooks ;
-* mise à jour du statut d’abonnement ;
-* changement de plan ;
-* annulation ;
-* synchronisation de la période d’abonnement ;
-* blocage des fonctionnalités selon le plan.
+- Checkout Session ;
+- Customer Portal ;
+- webhooks ;
+- mise à jour du statut d’abonnement ;
+- changement de plan ;
+- annulation ;
+- synchronisation de la période d’abonnement ;
+- blocage des fonctionnalités selon le plan.
 
 Endpoints attendus :
 
@@ -439,14 +455,14 @@ requireUsageLimit
 
 Les limites doivent pouvoir porter sur :
 
-* recherches mensuelles ;
-* prospects importés mensuellement ;
-* prospects sauvegardés ;
-* exports CSV ;
-* enrichissements ;
-* accès aux dashboards avancés ;
-* accès aux signaux ;
-* nombre de membres d’équipe futur.
+- recherches mensuelles ;
+- prospects importés mensuellement ;
+- prospects sauvegardés ;
+- exports CSV ;
+- enrichissements ;
+- accès aux dashboards avancés ;
+- accès aux signaux ;
+- nombre de membres d’équipe futur.
 
 Le code doit être extensible.
 
@@ -590,11 +606,11 @@ Le service doit :
 
 Une entreprise est une SCI confirmée si :
 
-* sa dénomination contient clairement `SCI` ;
-* ou sa forme juridique indique une société civile immobilière ;
-* et son activité ou sa section d’activité est compatible avec l’immobilier ;
-* et elle est active ;
-* et elle est dans la zone demandée.
+- sa dénomination contient clairement `SCI` ;
+- ou sa forme juridique indique une société civile immobilière ;
+- et son activité ou sa section d’activité est compatible avec l’immobilier ;
+- et elle est active ;
+- et elle est dans la zone demandée.
 
 Statuts de qualification :
 
@@ -645,8 +661,8 @@ Le score doit être explicable.
 Chaque prospect doit avoir :
 
 ```js
-score: Number
-scoreDetails: Object
+score: Number;
+scoreDetails: Object;
 ```
 
 ---
@@ -669,13 +685,13 @@ rgpd: {
 
 Règles strictes :
 
-* un prospect opposé ne peut pas être exporté ;
-* un prospect opposé ne peut pas être recontacté ;
-* l’opposition doit être historisée ;
-* les sources doivent être conservées ;
-* la date de collecte doit être conservée ;
-* les exports doivent exclure automatiquement les oppositions ;
-* les données personnelles ne doivent pas être enrichies sans base claire.
+- un prospect opposé ne peut pas être exporté ;
+- un prospect opposé ne peut pas être recontacté ;
+- l’opposition doit être historisée ;
+- les sources doivent être conservées ;
+- la date de collecte doit être conservée ;
+- les exports doivent exclure automatiquement les oppositions ;
+- les données personnelles ne doivent pas être enrichies sans base claire.
 
 ---
 
@@ -693,30 +709,30 @@ GET /api/dashboard/actions
 
 KPIs attendus :
 
-* total prospects ;
-* prospects qualifiés ;
-* prospects à vérifier ;
-* prospects contactés ;
-* prospects intéressés ;
-* prospects opposés ;
-* score moyen ;
-* recherches du mois ;
-* quota de recherches utilisé ;
-* quota de prospects importés utilisé ;
-* actions prévues ;
-* actions en retard ;
-* taux de qualification ;
-* taux d’intérêt ;
-* répartition par statut ;
-* répartition par commune.
+- total prospects ;
+- prospects qualifiés ;
+- prospects à vérifier ;
+- prospects contactés ;
+- prospects intéressés ;
+- prospects opposés ;
+- score moyen ;
+- recherches du mois ;
+- quota de recherches utilisé ;
+- quota de prospects importés utilisé ;
+- actions prévues ;
+- actions en retard ;
+- taux de qualification ;
+- taux d’intérêt ;
+- répartition par statut ;
+- répartition par commune.
 
 Le dashboard frontend doit utiliser :
 
-* cards shadcn/ui ;
-* tables shadcn/ui ;
-* badges shadcn/ui ;
-* graphiques Recharts ;
-* Tailwind CSS.
+- cards shadcn/ui ;
+- tables shadcn/ui ;
+- badges shadcn/ui ;
+- graphiques Recharts ;
+- Tailwind CSS.
 
 ---
 
@@ -751,34 +767,34 @@ Pages privées :
 
 Layout privé :
 
-* sidebar ;
-* topbar ;
-* contenu principal ;
-* menu utilisateur ;
-* bouton logout ;
-* affichage plan actuel ;
-* indicateur d’usage ;
-* navigation claire.
+- sidebar ;
+- topbar ;
+- contenu principal ;
+- menu utilisateur ;
+- bouton logout ;
+- affichage plan actuel ;
+- indicateur d’usage ;
+- navigation claire.
 
 Utiliser les composants shadcn/ui dès que possible.
 
 Composants prioritaires :
 
-* Button ;
-* Card ;
-* Badge ;
-* Table ;
-* Input ;
-* Form ;
-* Select ;
-* Dialog ;
-* Sheet ;
-* DropdownMenu ;
-* Tabs ;
-* Alert ;
-* Skeleton ;
-* Progress ;
-* Separator.
+- Button ;
+- Card ;
+- Badge ;
+- Table ;
+- Input ;
+- Form ;
+- Select ;
+- Dialog ;
+- Sheet ;
+- DropdownMenu ;
+- Tabs ;
+- Alert ;
+- Skeleton ;
+- Progress ;
+- Separator.
 
 ---
 
@@ -864,18 +880,18 @@ GET /api/dashboard/actions
 
 Écrire des tests pour :
 
-* validation auth ;
-* hash de mot de passe ;
-* refresh token ;
-* limites d’usage ;
-* filtrage SCI ;
-* calcul moins de 8 ans ;
-* scoring ;
-* exclusion RGPD ;
-* export sans prospects opposés ;
-* pagination API externe ;
-* gestion des erreurs 429 ;
-* accès interdit aux données d’un autre utilisateur.
+- validation auth ;
+- hash de mot de passe ;
+- refresh token ;
+- limites d’usage ;
+- filtrage SCI ;
+- calcul moins de 8 ans ;
+- scoring ;
+- exclusion RGPD ;
+- export sans prospects opposés ;
+- pagination API externe ;
+- gestion des erreurs 429 ;
+- accès interdit aux données d’un autre utilisateur.
 
 ---
 
@@ -957,16 +973,16 @@ Objectif :
 
 ## 21. Règles absolues
 
-* Ne jamais inventer de données.
-* Ne jamais exposer de secrets.
-* Ne jamais versionner `.env`.
-* Ne jamais utiliser une UI autre que Tailwind CSS et shadcn/ui.
-* Ne jamais confondre SCI, dirigeant, associé et bénéficiaire effectif.
-* Ne jamais exporter un prospect opposé.
-* Ne jamais permettre à un utilisateur de voir les données d’un autre utilisateur.
-* Ne jamais hardcoder les limites commerciales dans les controllers.
-* Ne jamais traiter un webhook Stripe non vérifié.
-* Ne jamais exposer les secrets Google OAuth côté frontend.
-* Toujours rattacher les données à un utilisateur.
-* Toujours conserver la source et la date de collecte.
-* Toujours écrire un code modulaire, testable et maintenable.
+- Ne jamais inventer de données.
+- Ne jamais exposer de secrets.
+- Ne jamais versionner `.env`.
+- Ne jamais utiliser une UI autre que Tailwind CSS et shadcn/ui.
+- Ne jamais confondre SCI, dirigeant, associé et bénéficiaire effectif.
+- Ne jamais exporter un prospect opposé.
+- Ne jamais permettre à un utilisateur de voir les données d’un autre utilisateur.
+- Ne jamais hardcoder les limites commerciales dans les controllers.
+- Ne jamais traiter un webhook Stripe non vérifié.
+- Ne jamais exposer les secrets Google OAuth côté frontend.
+- Toujours rattacher les données à un utilisateur.
+- Toujours conserver la source et la date de collecte.
+- Toujours écrire un code modulaire, testable et maintenable.

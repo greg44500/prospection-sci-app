@@ -300,7 +300,7 @@ Stack obligatoire :
 - Tailwind CSS obligatoire ;
 - shadcn/ui obligatoire ;
 - React Router ;
-- TanStack Query ou Redux Toolkit Query ;
+- TanStack Query ;
 - React Hook Form ;
 - Zod ;
 - Recharts pour les graphiques ;
@@ -323,6 +323,17 @@ Ne pas utiliser :
 - Ant Design ;
 - CSS global non structuré ;
 - composants visuels non cohérents avec shadcn/ui.
+
+#### 5.1.1 State management
+
+Le frontend utilise une séparation claire entre :
+
+- **état serveur** : géré par TanStack Query ;
+- **formulaires** : gérés par React Hook Form + Zod ;
+- **état UI local** : géré avec React state ou React Context léger ;
+- **filtres et pagination** : idéalement synchronisés avec l’URL lorsque cela améliore l’usage.
+
+Redux n’est pas utilisé par défaut afin de limiter la complexité initiale. Il ne devra être introduit que si un besoin réel apparaît.
 
 ### 5.2 Backend
 
