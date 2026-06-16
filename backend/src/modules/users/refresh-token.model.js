@@ -56,7 +56,7 @@ const refreshTokenSchema = new mongoose.Schema(
  * Indexes
  */
 refreshTokenSchema.index({ userId: 1, isRevoked: 1 });
-refreshTokenSchema.index({ expiresAt: 1 });
+
 
 /**
  * Methods

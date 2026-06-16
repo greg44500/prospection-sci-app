@@ -121,9 +121,7 @@ const subscriptionSchema = new mongoose.Schema(
 /**
  * Indexes
  */
-subscriptionSchema.index({ userId: 1 });
-subscriptionSchema.index({ planId: 1 });
-subscriptionSchema.index({ status: 1 });
+
 subscriptionSchema.index({ currentPeriodEnd: 1 });
 
 /**
